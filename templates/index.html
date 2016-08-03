@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>CFI Menu</title>
+ 
+ 
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+ 
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <script src="../static/js/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript">
+            $(function(){
+                $.ajax({
+                  type: 'GET',
+                  url: '/getWish',
+                  dataType: 'json',
+                  success: function(jsonData) {
+                    document.getElementById('soup1name').innerHTML = jsonData.soup1name;
+                    document.getElementById('soup1price').innerHTML = jsonData.soup1price;
+                    document.getElementById('soup1desc').innerHTML = jsonData.soup1desc;
+                    document.getElementById('soup2name').innerHTML = jsonData.soup2name;
+                    document.getElementById('soup2price').innerHTML = jsonData.soup2price;
+                    document.getElementById('soup2desc').innerHTML = jsonData.soup2desc;
+                    document.getElementById('main1name').innerHTML = jsonData.main1name;
+                    document.getElementById('main1price').innerHTML = jsonData.main1price;
+                    document.getElementById('main1desc').innerHTML = jsonData.main1desc;
+                    document.getElementById('main2name').innerHTML = jsonData.main2name;
+                    document.getElementById('main2price').innerHTML = jsonData.main2price;
+                    document.getElementById('main2desc').innerHTML = jsonData.main2desc;
+                    document.getElementById('vegname').innerHTML = jsonData.vegname;
+                    document.getElementById('vegprice').innerHTML = jsonData.vegprice;
+                    document.getElementById('vegdesc').innerHTML = jsonData.vegdesc;
+                  },
+                  error: function() {
+                    console.log('Error');
+                  }
+                });
+            });
+    </script>
+
+</head>
+ 
+<body>
+
+    <div class="container">
+      <div>
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="showSignin">Sign In</a></li>
+          </ul>
+        </nav>
+        <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTMyIqRGtyd0yFfWbmjOpFlomQj-dY-3SdW4G5unGQojFzLbmaZrg"height="50">
+      </div>
+ 
+        <div class="jumbotron">
+            <h1>Today's Lunch</h1>
+            <h2><script type="text/javascript">
+                var now = new Date();
+                var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+                if (now.getDay() === 0 || now.getDay() === 6){
+                    day = "Monday";
+                }
+                else{
+                    day = days[ now.getDay() ];
+                }
+                document.write(day);
+            </script></h2>
+            <span id="spanDate"></span>
+            <p class="lead"></p>
+        </div>
+
+        <div class="list-group">
+         <a href="#" class="list-group-item active">
+            <h4 class="list-group-item-heading" id="soup1name">Soup 1</h4>
+            <h5 class="list-group-item-text" id="soup1desc">Description</h5>
+             <p class="list-group-item-text" id="soup1price">Price</p>
+         </a>
+        </div>
+
+        <div class="list-group">
+         <a href="#" class="list-group-item active">
+            <h4 class="list-group-item-heading" id="soup2name">Soup 2</h4>
+            <h5 class="list-group-item-text" id="soup2desc">Description</h5>
+             <p class="list-group-item-text" id="soup2price">Price</p>
+         </a>
+        </div>
+
+        <div class="list-group">
+         <a href="#" class="list-group-item active">
+            <h4 class="list-group-item-heading" id="main1name">Main 1</h4>
+            <h5 class="list-group-item-text" id="main1desc">Description</h5>
+             <p class="list-group-item-text" id="main1price">Price</p>
+         </a>
+        </div>
+
+        <div class="list-group">
+         <a href="#" class="list-group-item active">
+            <h4 class="list-group-item-heading" id="main2name">Main 2</h4>
+            <h5 class="list-group-item-text" id="main2desc">Description</h5>
+             <p class="list-group-item-text" id="main2price">Price</p>
+         </a>
+        </div>
+
+        <div class="list-group">
+         <a href="#" class="list-group-item active">
+            <h4 class="list-group-item-heading" id="vegname">Vegetarian</h4>
+            <h5 class="list-group-item-text" id="vegdesc">Description</h5>
+             <p class="list-group-item-text" id="vegprice">Price</p>
+         </a>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; Company 2016</p>
+        </footer>
+ 
+    </div>
+</body>
+ 
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CFI Menu</title>
+
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+
+    <script src="../static/js/jquery-3.0.0.min.js"></script>
+    <script src="../static/js/datepicker.js"></script>
+
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active"><a href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+            <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTMyIqRGtyd0yFfWbmjOpFlomQj-dY-3SdW4G5unGQojFzLbmaZrg"height="50">
+        </div>
+        <section>
+            <form class="form-horizontal" method="post" action="/addWish">
+                <fieldset>
+
+                    <!-- Form Name -->
+                    <legend>
+                        <h3>Enter the next working day's menu</h3>
+                        <h4 id="todaydate">Today's date:
+                            <script type="text/javascript">
+                                var d = new Date()
+                                document.write(d.toDateString());
+                            </script></h4>
+                    </legend>
+
+
+                    <h5><center>If the next working day is a holiday, please specify the date of return</center></h5>
+                    <h5><center>If not, please leave blank</center></h5>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="txtTitle">Date</label>
+                        <div class="col-md-4">
+                            <input id="holidaydate" name="holidaydate" type="date" class="form-control input-md" placeholder="Name">
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="txtTitle">Soup Option 1</label>
+                        <div class="col-md-4">
+                            <input id="txtTitle" name="inputSoup1Name" type="text" class="form-control input-md" placeholder="Name">
+                        </div>
+                    </div>
+
+                    <!-- Textarea -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="txtPost"></label>
+                        <div class="col-md-4">
+                            <textarea class="form-control" id="txtPost" name="inputSoup1Description" placeholder="Additional Information"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="txtTitle"></label>
+                        <div class="col-md-4">
+                            <input id="txtTitle" name="inputSoup1Price" type="text" placeholder="Price" class="form-control input-md">
+                        </div>
+                    </div>
+
+                     <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="txtTitle">Soup Option 2</label>
+                        <div class="col-md-4">
+                            <input id="txtTitle" name="inputSoup2Name" type="text" class="form-control input-md" placeholder="Name">
+                        </div>
+                    </div>
+
+                    <!-- Textarea -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="txtPost"></label>
+                        <div class="col-md-4">
+                            <textarea class="form-control" id="txtPost" name="inputSoup2Description" placeholder="Additional Information"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="txtTitle"></label>
+                        <div class="col-md-4">
+                            <input id="txtTitle" name="inputSoup2Price" type="text" placeholder="Price" class="form-control input-md">
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="txtTitle">Main Option 1</label>
+                        <div class="col-md-4">
+                            <input id="txtTitle" name="inputMain1Name" type="text" class="form-control input-md" placeholder="Name">
+                        </div>
+                    </div>
+
+                    <!-- Textarea -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="txtPost"></label>
+                        <div class="col-md-4">
+                            <textarea class="form-control" id="txtPost" name="inputMain1Description" placeholder="Additional Information"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="txtTitle"></label>
+                        <div class="col-md-4">
+                            <input id="txtTitle" name="inputMain1Price" type="text" placeholder="Price" class="form-control input-md">
+                        </div>
+                    </div>
+
+                     <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="txtTitle">Main Option 2</label>
+                        <div class="col-md-4">
+                            <input id="txtTitle" name="inputMain2Name" type="text" class="form-control input-md" placeholder="Name">
+                        </div>
+                    </div>
+
+                    <!-- Textarea -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="txtPost"></label>
+                        <div class="col-md-4">
+                            <textarea class="form-control" id="txtPost" name="inputMain2Description" placeholder="Additional Information"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="txtTitle"></label>
+                        <div class="col-md-4">
+                            <input id="txtTitle" name="inputMain2Price" type="text" placeholder="Price" class="form-control input-md">
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="txtTitle">Vegetarian Option</label>
+                        <div class="col-md-4">
+                            <input id="txtTitle" name="inputVegName" type="text" class="form-control input-md" placeholder="Name">
+                        </div>
+                    </div>
+
+                    <!-- Textarea -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="txtPost"></label>
+                        <div class="col-md-4">
+                            <textarea class="form-control" id="txtPost" name="inputVegDescription" placeholder="Additional Information"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="txtTitle"></label>
+                        <div class="col-md-4">
+                            <input id="txtTitle" name="inputVegPrice" type="text" placeholder="Price" class="form-control input-md">
+                        </div>
+                    </div>
+
+                    <!-- Button -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="singlebutton"></label>
+                        <div class="col-md-4">
+                            <input id="singlebutton" name="singlebutton" class="btn btn-primary" type="submit" value="Submit" />
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+
+        </section>
+        <footer class="footer">
+            <p>&copy; Copyright 2016</p>
+        </footer>
+
+    </div>
+</body>
+
+</html>
