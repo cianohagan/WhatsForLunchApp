@@ -128,12 +128,47 @@ def getWish():
             emit(doc.Date, doc);
         }''' % today_date
 
+    # Assigning desired document to menu_dict
+    global menu_dict
+    menu_dict = None
     for row in db_menulist.query(map_fun):
-        global menu_dict
         menu_dict = row.value
 
-    menu_json = json.dumps(menu_dict)
-    return menu_json
+    # Returning message if data needed is not in db
+    if menu_dict is not None:
+        menu_json = json.dumps(menu_dict)
+        return menu_json
+    else:
+        return json.dumps("Data Unavailable")
+
+@app.route('/tomorrowMenu')
+def tomorrowMenu():
+
+    global tomorrow_menu_date
+    if (datetime.datetime.today().weekday() == 4):  # If it's friday add 3 days to date
+        tomorrow_menu_date = datetime.date.today() + datetime.timedelta(days=3)
+    elif (datetime.datetime.today().weekday() == 5):  # If it's Sat add 2 days to date
+        tomorrow_menu_date = datetime.date.today() + datetime.timedelta(days=2)
+    else:  # All other days need only one day to be added to date
+        tomorrow_menu_date = datetime.date.today() + datetime.timedelta(days=1)
+
+    map_fun = '''function(doc) {
+        if(doc.Date === "%s")
+            emit(doc.Date, doc);
+        }''' % tomorrow_menu_date
+
+    global tomorrow_menu_dict
+    tomorrow_menu_dict = None
+    for row in db_menulist.query(map_fun):
+        tomorrow_menu_dict = row.value
+
+    # Returning message if data needed is not in db
+    if tomorrow_menu_dict is not None:
+        menu_json = json.dumps(tomorrow_menu_dict)
+        return menu_json
+    else:
+        return json.dumps("Data Unavailable")
+
 
 # Checking if the file being executed is the main programme
 if __name__ == "__main__":
