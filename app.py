@@ -111,8 +111,8 @@ def addWish():
                       "Date": "%s" % tomorrow_date})
     return render_template('index.html')
 
-@app.route('/getWish')
-def getWish():
+@app.route('/getMenu')
+def getMenu():
 
     # Displaying Monday's menu if it is the weekend
     global today_date
