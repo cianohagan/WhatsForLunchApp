@@ -35,7 +35,7 @@ def validateLogin():
     _password = request.form['inputPassword']
 
     if (_username == correct_email) and (_password == correct_password):
-        return redirect('/showAddWish')
+        return redirect('/showAddMenu')
     else:
         print "Incorrect Login Details"
         json.dumps("Incorrect Login Details")
@@ -47,15 +47,15 @@ def logout():
     _username = None # Making the session variable 'user' null therefore logging the user out
     return redirect('/') # Redirecting to the main page
 
-@app.route('/showAddWish')
-def showAddWish():
+@app.route('/showAddMenu')
+def showAddMenu():
     if (_username == None):
         return redirect('showSignin')
     else:
-        return render_template('addWish.html')
+        return render_template('AddMenu.html')
 
-@app.route('/addWish',methods=['POST'])
-def addWish():
+@app.route('/AddMenu',methods=['POST'])
+def AddMenu():
 
     # Assigning inputted fields to variables
     _soup1name = request.form['inputSoup1Name']
