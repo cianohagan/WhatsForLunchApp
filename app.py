@@ -139,7 +139,13 @@ def getMenu():
         menu_json = json.dumps(menu_dict)
         return menu_json
     else:
-        return json.dumps("Data Unavailable")
+        no_data_dict = {"soup1name": "Today's menu has not been uploaded yet.", "soup1desc": " ", "soup1price": " ",
+                         "soup2name": "Please try again later.", "soup2desc": " ", "soup2price": " ",
+                         "main1name": "If you are a member of the catering team,", "main1desc": " ", "main1price": " ",
+                         "main2name": "Please enter today's menu:", "main2desc": " ", "main2price": " ",
+                         "vegname": "Follow the 'Sign In' link.", "vegdesc": " ", "vegprice": " "}
+        no_data_json = json.dumps(no_data_dict)
+        return no_data_json
 
 @app.route('/tomorrowMenu')
 def tomorrowMenu():
