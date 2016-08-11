@@ -25,12 +25,12 @@ app.intent('lunchIntent', {
         ]
     }, function(request, response) {
 
-    var url = "https://whatsforlunchapp.herokuapp.com/getWish";
+    var url = "https://whatsforlunchapp.herokuapp.com/getMenu";
 
     client.get(url, function (lunch, callback) {
         // parsed response body as js object
         data = JSON.parse(lunch);
-        if (data != "Data Unavailable"){
+        if (data.soup1name != "Today's menu has not been uploaded yet."){
             var mainDishOne = data.main1name.replace("&", "and");
             var mainDishTwo = data.main2name.replace("&", "and");
             var mainDishVeg = data.vegname.replace("&", "and");
@@ -122,12 +122,12 @@ app.intent('soupIntent', {
         ]
     }, function(request, response) {
 
-    var url = "https://whatsforlunchapp.herokuapp.com/getWish";
+    var url = "https://whatsforlunchapp.herokuapp.com/getMenu";
 
     client.get(url, function (lunch, callback) {
         // parsed response body as js object
         data = JSON.parse(lunch);
-        if (data != "Data Unavailable"){
+        if (data.soup1name != "Today's menu has not been uploaded yet."){
             slug.charmap['€'] = ''
             slug.charmap['.'] = 'euro'
             var soupOne = data.soup1name.replace("&", "and");
@@ -170,16 +170,17 @@ app.intent('meatIntent', {
             "What are the meat dishes",
             "What is the meat dish",
             "meat",
-            "main"
+            "main",
+            "WHat are the main dishes"
         ]
     }, function(request, response) {
 
-    var url = "https://whatsforlunchapp.herokuapp.com/getWish";
+    var url = "https://whatsforlunchapp.herokuapp.com/getMenu";
 
     client.get(url, function (lunch, callback) {
         // parsed response body as js object
         data = JSON.parse(lunch);
-        if (data != "Data Unavailable"){
+        if (data.soup1name != "Today's menu has not been uploaded yet."){
             slug.charmap['€'] = ''
             slug.charmap['.'] = 'euro'
             var mainDishOne = data.main1name.replace("&", "and");
@@ -226,12 +227,12 @@ app.intent('vegIntent', {
         ]
     }, function(request, response) {
 
-    var url = "https://whatsforlunchapp.herokuapp.com/getWish";
+    var url = "https://whatsforlunchapp.herokuapp.com/getMenu";
 
     client.get(url, function (lunch, callback) {
         // parsed response body as js object
         data = JSON.parse(lunch);
-        if (data != "Data Unavailable"){
+        if (data.soup1name != "Today's menu has not been uploaded yet."){
             slug.charmap['€'] = ''
             slug.charmap['.'] = 'euro'
             var mainDishVeg = data.vegname.replace("&", "and");
@@ -271,12 +272,12 @@ app.intent('tellMeMoreVegIntent', {
         ]
     }, function(request, response) {
 
-    var url = "https://whatsforlunchapp.herokuapp.com/getWish";
+    var url = "https://whatsforlunchapp.herokuapp.com/getMenu";
 
     client.get(url, function (lunch, callback) {
         // parsed response body as js object
         data = JSON.parse(lunch);
-        if (data != "Data Unavailable"){
+        if (data.soup1name != "Today's menu has not been uploaded yet."){
             var mainDishVeg = data.vegname.replace("&", "and");
             var originalDesc = data.vegdesc;
             var kcalReplace = originalDesc.replace("Kcal", "calories");
@@ -317,12 +318,12 @@ app.intent('tellMeMoreMeatIntent', {
         ]
     }, function(request, response) {
 
-    var url = "https://whatsforlunchapp.herokuapp.com/getWish";
+    var url = "https://whatsforlunchapp.herokuapp.com/getMenu";
 
     client.get(url, function (lunch, callback) {
         // parsed response body as js object
         data = JSON.parse(lunch);
-        if (data != "Data Unavailable"){
+        if (data.soup1name != "Today's menu has not been uploaded yet."){
             var mainDishOne = data.main1name.replace("&", "and");
             var mainDishTwo = data.main2name.replace("&", "and");
             var originalDesc1 = data.main1desc.replace("Kcal", "calories");
