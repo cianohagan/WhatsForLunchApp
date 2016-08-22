@@ -19,12 +19,14 @@ def main():
     # Loads the index HTML file
 	return render_template("index.html")
 
+# Redner 'sign in' page
 @app.route('/showSignin')
 def showSignin():
     tomorrow_date = datetime.date.today() - datetime.timedelta(days=1)
     print tomorrow_date
     return render_template('signin.html')
 
+# Only allowed email and password in this function to log-in
 @app.route('/validateLogin',methods=['POST'])
 def validateLogin():
 
@@ -82,6 +84,7 @@ def AddMenu():
 
     # Taking weekends into account when entering tomorrow's menu
     global tomorrow_date
+    # If the next weekday is a bank holiday, the date will have to be manually entered
     if _holidaydate != "":
         tomorrow_date = _holidaydate
     elif (datetime.datetime.today().weekday() == 4): # If it's friday add 3 days to date
@@ -91,7 +94,7 @@ def AddMenu():
     else: # All other days need only one day to be added to date
         tomorrow_date = datetime.date.today() + datetime.timedelta(days=1)
 
-    # Deleting any previous entries with same date
+    # Deleting any previous entries with same date of data entered by user
     map_fun = '''function(doc) {
         if(doc.Date === "%s")
             emit(doc.Date, doc);
@@ -111,6 +114,7 @@ def AddMenu():
                       "Date": "%s" % tomorrow_date})
     return render_template('index.html')
 
+# Endpoint to GET to get data for index.html and alexa code
 @app.route('/getMenu')
 def getMenu():
 
@@ -147,6 +151,7 @@ def getMenu():
         no_data_json = json.dumps(no_data_dict)
         return no_data_json
 
+# Endpoint to GET for Alexa code that supplies tomorow's menu
 @app.route('/tomorrowMenu')
 def tomorrowMenu():
 
